@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import vista.Mensajes;
 import vista.VConsultarRecordPago;
-import dao.DaoConsultarRecordPago;
+
 
 /**
  *
@@ -21,11 +21,10 @@ import dao.DaoConsultarRecordPago;
 public class ControladorVConsultarRecordPago implements ActionListener {
 
     private final VConsultarRecordPago vrecpag;
-    private final DaoConsultarRecordPago dconrecpag;
+    
 
     public ControladorVConsultarRecordPago() throws SQLException {
         vrecpag = new VConsultarRecordPago();
-        dconrecpag = new DaoConsultarRecordPago();
         vrecpag.setVisible(true);
         vrecpag.Agregar_Listener(this);
         
@@ -68,17 +67,10 @@ public class ControladorVConsultarRecordPago implements ActionListener {
 
                 Mensajes.Aviso("Debe seleccionar un proyecto a consultar", "Aviso");
                 vrecpag.getScrollpanReporteProyecto().setVisible(false);
-                try {
-                    dconrecpag.BuscarPorProyecto((String) vrecpag.getCmbboxProyectoConsultar().getSelectedItem());
-                } catch (SQLException ex) {
-                    Logger.getLogger(ControladorVConsultarRecordPago.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
+           
             } else {
-                
-
-                vrecpag.getScrollpanReporteProyecto().setVisible(true);
-                
+               
+                vrecpag.getScrollpanReporteProyecto().setVisible(true);    
             }
 
         }
