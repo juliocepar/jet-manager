@@ -276,7 +276,7 @@ public class VRegistroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-    this.dispose();        // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaisActionPerformed
@@ -284,7 +284,7 @@ public class VRegistroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPaisActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-this.jPanel2.show();        // TODO add your handling code here:
+       // TODO add your handling code here:
         
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
