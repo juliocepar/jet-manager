@@ -9,19 +9,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import vista.Mensajes;
-import vista.VConsultarRecordUtilidad;
+import vista.VConsultaRecordUtilidad;
 
 /**
  *
  * @author ABUNASSAR PENARANDA
  */
-public class ControladorVConsultarRecordUtilidad implements ActionListener{
+public class CConsultaRecordUtilidad implements ActionListener{
     
-      private final VConsultarRecordUtilidad vrecuti;
+      private final VConsultaRecordUtilidad vrecuti;
 
-    public ControladorVConsultarRecordUtilidad() throws SQLException {
+    public CConsultaRecordUtilidad() throws SQLException {
         
-        vrecuti = new VConsultarRecordUtilidad();
+        vrecuti = new VConsultaRecordUtilidad();
         vrecuti.setVisible(true);
         vrecuti.Agregar_Listener(this);
        

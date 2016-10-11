@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Julio César
  */
-public class Candidato {
+public class MCandidato {
     private String rif;
     private String nombres;
     private String apellidos;
@@ -37,7 +37,7 @@ public class Candidato {
      * @param telefono
      * @param palabrasClave
      */
-    public Candidato(String rif, String nombres, String apellidos,
+    public MCandidato(String rif, String nombres, String apellidos,
                 Date fechaNacimiento, char edoCivil, String direccion,
                 String ciudad, String pais, String email, String telefono,
                 String[] palabrasClave) {

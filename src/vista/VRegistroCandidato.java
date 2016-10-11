@@ -7,6 +7,7 @@ package vista;
 
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -18,13 +19,14 @@ import javax.swing.JTextField;
  *
  * @author Julio César
  */
-public class VRegistrarCandidato extends javax.swing.JFrame {
+public class VRegistroCandidato extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaRegistrarCandidato
      */
-    public VRegistrarCandidato() {
+    public VRegistroCandidato() {
         initComponents();
+        ((JTextField)calFechaNacimiento.getDateEditor()).setEditable(false);
     }
 
     public JButton getBtnCancelar() {
@@ -92,7 +94,10 @@ public class VRegistrarCandidato extends javax.swing.JFrame {
     public void agregarListener(ActionListener al) {
         this.btnCancelar.addActionListener(al);
         this.btnGuardar.addActionListener(al);
-        this.cmbPais.addActionListener(al);
+    }
+    
+    public void agregarItemListener(ItemListener il) {
+        this.cmbPais.addItemListener(il);
     }
     
     /**
@@ -169,11 +174,6 @@ public class VRegistrarCandidato extends javax.swing.JFrame {
         lblRif.setText("RIF");
 
         txtRif.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtRif.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRifKeyTyped(evt);
-            }
-        });
 
         cmbRif.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         cmbRif.setMaximumRowCount(2);
@@ -185,22 +185,12 @@ public class VRegistrarCandidato extends javax.swing.JFrame {
         lblNombres.setText("Nombres");
 
         txtNombres.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtNombres.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNombresKeyTyped(evt);
-            }
-        });
 
         lblApellidos.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblApellidos.setForeground(new java.awt.Color(255, 255, 255));
         lblApellidos.setText("Apellidos");
 
         txtApellidos.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtApellidosKeyTyped(evt);
-            }
-        });
 
         lblFechaNacimiento.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblFechaNacimiento.setForeground(new java.awt.Color(255, 255, 255));
@@ -228,11 +218,6 @@ public class VRegistrarCandidato extends javax.swing.JFrame {
         txaDireccion.setRows(3);
         txaDireccion.setWrapStyleWord(true);
         txaDireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        txaDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txaDireccionKeyTyped(evt);
-            }
-        });
         jScrollPane1.setViewportView(txaDireccion);
 
         lblPais.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -243,33 +228,18 @@ public class VRegistrarCandidato extends javax.swing.JFrame {
         cmbPais.setMaximumRowCount(10);
         cmbPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Anguilla", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bahréin", "Bangladesh", "Barbados", "Belarús", "Bélgica", "Belice", "Benín", "Birmania", "Bolivia", "Bosnia-Herzegovina", "Botsuana", "Brasil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Chad", "Chile", "China", "Chipre", "Colombia", "Comoras", "Congo", "Congo, República Democrática del", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guinea", "Guinea Ecuatorial", "Guinea-Bissau", "Guyana", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajstán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia", "Madagascar", "Malasia", "Malawi", "Maldivas", "Malí", "Malta", "Marruecos", "Marshall", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Qatar", "Reino Unido", "República Centroafricana", "República Checa", "República Dominicana", "Ruanda", "Rumania", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santa Sede (Vaticano)", "Santo Tomé y Príncipe", "Senegal", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Suecia", "Suiza", "Surinam", "Tailandia", "Taiwán", "Tanzania", "Tayikistán", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Yugoslavia", "Zambia", "Zimbabue" }));
         cmbPais.setFocusable(false);
-        cmbPais.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbPaisItemStateChanged(evt);
-            }
-        });
 
         lblCiudad.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblCiudad.setForeground(new java.awt.Color(255, 255, 255));
         lblCiudad.setText("Ciudad");
 
         txtCiudad.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtCiudad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCiudadKeyTyped(evt);
-            }
-        });
 
         lblCorreo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblCorreo.setForeground(new java.awt.Color(255, 255, 255));
         lblCorreo.setText("Correo electrónico");
 
         txtCorreo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCorreoKeyTyped(evt);
-            }
-        });
 
         lblTelefono.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblTelefono.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,11 +252,6 @@ public class VRegistrarCandidato extends javax.swing.JFrame {
 
         txtTelefono.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtTelefono.setToolTipText("");
-        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTelefonoKeyTyped(evt);
-            }
-        });
 
         lblPalabrasClave.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPalabrasClave.setForeground(new java.awt.Color(255, 255, 255));
@@ -302,16 +267,13 @@ public class VRegistrarCandidato extends javax.swing.JFrame {
         txaPalabrasClave.setToolTipText("Escribe las palabras clave separadas con comas");
         txaPalabrasClave.setWrapStyleWord(true);
         txaPalabrasClave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        txaPalabrasClave.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txaPalabrasClaveKeyTyped(evt);
-            }
-        });
         jScrollPane2.setViewportView(txaPalabrasClave);
 
+        btnGuardar.setBackground(new java.awt.Color(255, 153, 51));
         btnGuardar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
 
+        btnCancelar.setBackground(new java.awt.Color(255, 153, 51));
         btnCancelar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
 
@@ -459,125 +421,9 @@ public class VRegistrarCandidato extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
-        if(txtCorreo.getText().length() >= 30) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtCorreoKeyTyped
-
-    private void txtCiudadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCiudadKeyTyped
-        if(txtCiudad.getText().length() >= 25) {
-            evt.consume();
-        }
-        char c = evt.getKeyChar();
-        if(!Character.isLetter(c) && !Character.isSpaceChar(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtCiudadKeyTyped
-
-    private void txaDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txaDireccionKeyTyped
-        if(txaDireccion.getText().length() >= 80 || evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txaDireccionKeyTyped
-
-    private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
-        if(txtApellidos.getText().length() >= 25) {
-            evt.consume();
-        }
-
-        char c = evt.getKeyChar();
-        if(!Character.isLetter(c) && !Character.isSpaceChar(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtApellidosKeyTyped
-
-    private void txtNombresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombresKeyTyped
-        if(txtNombres.getText().length() >= 25) {
-            evt.consume();
-        }
-
-        char c = evt.getKeyChar();
-        if(!Character.isLetter(c) && !Character.isSpaceChar(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtNombresKeyTyped
-
-    private void txtRifKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRifKeyTyped
-        if(txtRif.getText().length() >= 9) {
-            evt.consume();
-        }
-
-        char c = evt.getKeyChar();
-        if(!Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtRifKeyTyped
-
-    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
-        if(txtTelefono.getText().length() >= 11) {
-            evt.consume();
-        }
-        
-        char c = evt.getKeyChar();
-        if(!Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtTelefonoKeyTyped
-
-    private void cmbPaisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPaisItemStateChanged
-        if(cmbPais.getItemAt(186) == cmbPais.getSelectedItem()) {
-            lblCodTelefono.setText("+58");
-        }
-    }//GEN-LAST:event_cmbPaisItemStateChanged
-
-    private void txaPalabrasClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txaPalabrasClaveKeyTyped
-        if(txaDireccion.getText().length() >= 80) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txaPalabrasClaveKeyTyped
-
     private void calFechaNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooser1KeyTyped
        evt.consume();
     }//GEN-LAST:event_jDateChooser1KeyTyped
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VRegistrarCandidato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VRegistrarCandidato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VRegistrarCandidato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VRegistrarCandidato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VRegistrarCandidato().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;

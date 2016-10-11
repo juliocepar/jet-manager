@@ -11,20 +11,20 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import vista.Mensajes;
-import vista.VConsultarRecordPago;
+import vista.VConsultaRecordPago;
 
 
 /**
  *
  * @author ABUNASSAR PENARANDA
  */
-public class ControladorVConsultarRecordPago implements ActionListener {
+public class CConsultaRecordPago implements ActionListener {
 
-    private final VConsultarRecordPago vrecpag;
+    private final VConsultaRecordPago vrecpag;
     
 
-    public ControladorVConsultarRecordPago() throws SQLException {
-        vrecpag = new VConsultarRecordPago();
+    public CConsultaRecordPago() throws SQLException {
+        vrecpag = new VConsultaRecordPago();
         vrecpag.setVisible(true);
         vrecpag.Agregar_Listener(this);
         

@@ -20,12 +20,12 @@ import javax.swing.JTextField;
  *
  * @author ABUNASSAR PENARANDA
  */
-public class VConsultarRecordUtilidad extends javax.swing.JFrame {
+public class VConsultaRecordUtilidad extends javax.swing.JFrame {
 
     /**
      * Creates new form ConsultarRecordUtilidad
      */
-    public VConsultarRecordUtilidad() {
+    public VConsultaRecordUtilidad() {
         initComponents();
         
         
@@ -450,21 +450,23 @@ public class VConsultarRecordUtilidad extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VConsultarRecordUtilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VConsultaRecordUtilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VConsultarRecordUtilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VConsultaRecordUtilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VConsultarRecordUtilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VConsultaRecordUtilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VConsultarRecordUtilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VConsultaRecordUtilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VConsultarRecordUtilidad().setVisible(true);
+                new VConsultaRecordUtilidad().setVisible(true);
             }
         });
     }
