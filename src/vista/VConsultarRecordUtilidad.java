@@ -144,18 +144,24 @@ public class VConsultarRecordUtilidad extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panConsultarUtilidad.setBackground(new java.awt.Color(102, 102, 102));
+        panConsultarUtilidad.setForeground(new java.awt.Color(102, 102, 102));
         panConsultarUtilidad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("CONSULTAR UTILIDAD");
         panConsultarUtilidad.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         lblFiltrarPor.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        lblFiltrarPor.setForeground(new java.awt.Color(255, 255, 255));
         lblFiltrarPor.setText("Filtrar por:");
         panConsultarUtilidad.add(lblFiltrarPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 38, -1, -1));
 
+        radiobtnProyecto.setBackground(new java.awt.Color(102, 102, 102));
         btngroupFiltrarPor.add(radiobtnProyecto);
         radiobtnProyecto.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        radiobtnProyecto.setForeground(new java.awt.Color(255, 255, 255));
         radiobtnProyecto.setText("Proyecto");
         radiobtnProyecto.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -175,8 +181,10 @@ public class VConsultarRecordUtilidad extends javax.swing.JFrame {
         //radiobtnProyecto.setSelected(true);
         panConsultarUtilidad.add(radiobtnProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 56, -1, -1));
 
+        radiobtnMes.setBackground(new java.awt.Color(102, 102, 102));
         btngroupFiltrarPor.add(radiobtnMes);
         radiobtnMes.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        radiobtnMes.setForeground(new java.awt.Color(255, 255, 255));
         radiobtnMes.setText("Mes");
         radiobtnMes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -200,7 +208,8 @@ public class VConsultarRecordUtilidad extends javax.swing.JFrame {
         });
         panConsultarUtilidad.add(cmbboxProyectoConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 300, 20));
 
-        btnConsultarProyecto.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        btnConsultarProyecto.setBackground(new java.awt.Color(255, 102, 0));
+        btnConsultarProyecto.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnConsultarProyecto.setText("Consultar");
         btnConsultarProyecto.setVisible(false);
         btnConsultarProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -219,6 +228,7 @@ public class VConsultarRecordUtilidad extends javax.swing.JFrame {
         panConsultarUtilidad.add(btnConsultarProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         lblNombreProyectoConsultar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        lblNombreProyectoConsultar.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreProyectoConsultar.setText("Nombre del proyecto a consultar:");
         lblNombreProyectoConsultar.setVisible(false);
         panConsultarUtilidad.add(lblNombreProyectoConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
@@ -238,7 +248,8 @@ public class VConsultarRecordUtilidad extends javax.swing.JFrame {
         });
         panConsultarUtilidad.add(cmbboxMesConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 160, 20));
 
-        btnConsultarMes.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        btnConsultarMes.setBackground(new java.awt.Color(255, 102, 0));
+        btnConsultarMes.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnConsultarMes.setText("Consultar");
         btnConsultarMes.setVisible(false);
         btnConsultarMes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -257,17 +268,19 @@ public class VConsultarRecordUtilidad extends javax.swing.JFrame {
         panConsultarUtilidad.add(btnConsultarMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         lblHorasLaborables.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        lblHorasLaborables.setForeground(new java.awt.Color(255, 255, 255));
         lblHorasLaborables.setText("Horas laborables del mes:");
-        panConsultarUtilidad.add(lblHorasLaborables, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, 20));
+        panConsultarUtilidad.add(lblHorasLaborables, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, -1, 20));
         lblHorasLaborables.setVisible(false);
 
         txtHorasLaborables.setEditable(false);
         txtHorasLaborables.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         txtHorasLaborables.setFocusable(false);
         txtHorasLaborables.setVisible(false);
-        panConsultarUtilidad.add(txtHorasLaborables, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 80, -1));
+        panConsultarUtilidad.add(txtHorasLaborables, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, 80, -1));
 
         lblMesConsultar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        lblMesConsultar.setForeground(new java.awt.Color(255, 255, 255));
         lblMesConsultar.setText("Seleccionar mes a consultar:");
         lblMesConsultar.setVisible(false);
         panConsultarUtilidad.add(lblMesConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
