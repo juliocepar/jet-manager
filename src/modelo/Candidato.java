@@ -22,7 +22,7 @@ public class Candidato {
     private String pais;
     private String email;
     private String telefono;
-    //private String[] palabrasClave;
+    private String[] palabrasClave;
     
     /**
      * @param rif
@@ -35,12 +35,12 @@ public class Candidato {
      * @param pais
      * @param email
      * @param telefono
-     * //@param palabrasClave
+     * @param palabrasClave
      */
     public Candidato(String rif, String nombres, String apellidos,
                 Date fechaNacimiento, char edoCivil, String direccion,
-                String ciudad, String pais, String email, String telefono/*,
-                String[] palabrasClave*/) {
+                String ciudad, String pais, String email, String telefono,
+                String[] palabrasClave) {
     	super();
     	this.rif = rif;
     	this.nombres = nombres;
@@ -52,7 +52,7 @@ public class Candidato {
     	this.pais = pais;
     	this.email = email;
     	this.telefono = telefono;
-	//this.palabrasClave = palabrasClave;
+	this.palabrasClave = palabrasClave;
     }
     
     /**
@@ -195,18 +195,18 @@ public class Candidato {
     	this.telefono = telefono;
     }
 
-    ///**
-     //* @return the palabrasClave
-     //*/
-    //public String[] getPalabrasClave() {
-    //	return palabrasClave;
-    //}
+    /**
+     * @return the palabrasClave
+     */
+    public String[] getPalabrasClave() {
+    	return palabrasClave;
+    }
 
-    ///**
-     //* @param palabrasClave the palabrasClave to set
-     //*/
-    //public void setPalabrasClave(String[] palabrasClave) {
-    //	this.palabrasClave = palabrasClave;
-    //}
+    /**
+     * @param palabrasClave the palabrasClave to set
+     */
+    public void setPalabrasClave(String[] palabrasClave) {
+    	this.palabrasClave = palabrasClave;
+    }
     
 }
