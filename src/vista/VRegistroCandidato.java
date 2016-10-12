@@ -8,7 +8,6 @@ package vista;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
-import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -27,6 +26,14 @@ public class VRegistroCandidato extends javax.swing.JFrame {
     public VRegistroCandidato() {
         initComponents();
         ((JTextField)calFechaNacimiento.getDateEditor()).setEditable(false);
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public JButton getBtnModificar() {
+        return btnModificar;
     }
 
     public JButton getBtnCancelar() {
@@ -140,6 +147,8 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         calFechaNacimiento = new com.toedter.calendar.JDateChooser();
+        btnModificar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -150,7 +159,7 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         jpanEncabezado.setBackground(new java.awt.Color(255, 153, 51));
 
         lblRegistrarCandidato.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
-        lblRegistrarCandidato.setText("Registrar candidato");
+        lblRegistrarCandidato.setText("Gestionar candidato");
 
         javax.swing.GroupLayout jpanEncabezadoLayout = new javax.swing.GroupLayout(jpanEncabezado);
         jpanEncabezado.setLayout(jpanEncabezadoLayout);
@@ -171,13 +180,13 @@ public class VRegistroCandidato extends javax.swing.JFrame {
 
         lblRif.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblRif.setForeground(new java.awt.Color(255, 255, 255));
-        lblRif.setText("RIF");
+        lblRif.setText("ID");
 
         txtRif.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
         cmbRif.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        cmbRif.setMaximumRowCount(2);
-        cmbRif.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "V", "E" }));
+        cmbRif.setMaximumRowCount(3);
+        cmbRif.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "V", "E", "P" }));
         cmbRif.setFocusable(false);
 
         lblNombres.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -185,12 +194,14 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         lblNombres.setText("Nombres");
 
         txtNombres.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        txtNombres.setEnabled(false);
 
         lblApellidos.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblApellidos.setForeground(new java.awt.Color(255, 255, 255));
         lblApellidos.setText("Apellidos");
 
         txtApellidos.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        txtApellidos.setEnabled(false);
 
         lblFechaNacimiento.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblFechaNacimiento.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,6 +214,7 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         cmbEdoCivil.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         cmbEdoCivil.setMaximumRowCount(4);
         cmbEdoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero(a)", "Casado(a)", "Divorciado(a)", "Viudo(a)" }));
+        cmbEdoCivil.setEnabled(false);
         cmbEdoCivil.setFocusable(false);
 
         lblDireccion.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -218,6 +230,7 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         txaDireccion.setRows(3);
         txaDireccion.setWrapStyleWord(true);
         txaDireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txaDireccion.setEnabled(false);
         jScrollPane1.setViewportView(txaDireccion);
 
         lblPais.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -227,6 +240,7 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         cmbPais.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         cmbPais.setMaximumRowCount(10);
         cmbPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Anguilla", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bahréin", "Bangladesh", "Barbados", "Belarús", "Bélgica", "Belice", "Benín", "Birmania", "Bolivia", "Bosnia-Herzegovina", "Botsuana", "Brasil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Chad", "Chile", "China", "Chipre", "Colombia", "Comoras", "Congo", "Congo, República Democrática del", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guinea", "Guinea Ecuatorial", "Guinea-Bissau", "Guyana", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajstán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia", "Madagascar", "Malasia", "Malawi", "Maldivas", "Malí", "Malta", "Marruecos", "Marshall", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Qatar", "Reino Unido", "República Centroafricana", "República Checa", "República Dominicana", "Ruanda", "Rumania", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santa Sede (Vaticano)", "Santo Tomé y Príncipe", "Senegal", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Suecia", "Suiza", "Surinam", "Tailandia", "Taiwán", "Tanzania", "Tayikistán", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Yugoslavia", "Zambia", "Zimbabue" }));
+        cmbPais.setEnabled(false);
         cmbPais.setFocusable(false);
 
         lblCiudad.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -234,12 +248,14 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         lblCiudad.setText("Ciudad");
 
         txtCiudad.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        txtCiudad.setEnabled(false);
 
         lblCorreo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblCorreo.setForeground(new java.awt.Color(255, 255, 255));
         lblCorreo.setText("Correo electrónico");
 
         txtCorreo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        txtCorreo.setEnabled(false);
 
         lblTelefono.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblTelefono.setForeground(new java.awt.Color(255, 255, 255));
@@ -252,6 +268,7 @@ public class VRegistroCandidato extends javax.swing.JFrame {
 
         txtTelefono.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtTelefono.setToolTipText("");
+        txtTelefono.setEnabled(false);
 
         lblPalabrasClave.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPalabrasClave.setForeground(new java.awt.Color(255, 255, 255));
@@ -267,15 +284,30 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         txaPalabrasClave.setToolTipText("Escribe las palabras clave separadas con comas");
         txaPalabrasClave.setWrapStyleWord(true);
         txaPalabrasClave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txaPalabrasClave.setEnabled(false);
         jScrollPane2.setViewportView(txaPalabrasClave);
 
         btnGuardar.setBackground(new java.awt.Color(255, 153, 51));
         btnGuardar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.setEnabled(false);
 
         btnCancelar.setBackground(new java.awt.Color(255, 153, 51));
         btnCancelar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setEnabled(false);
+
+        calFechaNacimiento.setEnabled(false);
+
+        btnModificar.setBackground(new java.awt.Color(255, 153, 51));
+        btnModificar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnModificar.setText("Modificar");
+        btnModificar.setEnabled(false);
+
+        btnBuscar.setBackground(new java.awt.Color(255, 153, 51));
+        btnBuscar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.setEnabled(false);
 
         javax.swing.GroupLayout jpanFondoLayout = new javax.swing.GroupLayout(jpanFondo);
         jpanFondo.setLayout(jpanFondoLayout);
@@ -284,14 +316,6 @@ public class VRegistroCandidato extends javax.swing.JFrame {
             .addComponent(jpanEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jpanFondoLayout.createSequentialGroup()
                 .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanFondoLayout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(lblRif)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtRif, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jpanFondoLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,11 +367,23 @@ public class VRegistroCandidato extends javax.swing.JFrame {
                                 .addComponent(jScrollPane2))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanFondoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModificar)
+                        .addGap(18, 18, 18)
                         .addComponent(btnCancelar)
-                        .addGap(39, 39, 39)
+                        .addGap(18, 18, 18)
                         .addComponent(btnGuardar)
                         .addGap(12, 12, 12)))
                 .addGap(21, 21, 21))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanFondoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblRif)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cmbRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtRif, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscar)
+                .addGap(189, 189, 189))
         );
         jpanFondoLayout.setVerticalGroup(
             jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,8 +393,9 @@ public class VRegistroCandidato extends javax.swing.JFrame {
                 .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRif)
                     .addComponent(cmbRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(txtRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(27, 27, 27)
                 .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblApellidos)
                     .addComponent(lblNombres)
@@ -400,10 +437,11 @@ public class VRegistroCandidato extends javax.swing.JFrame {
                     .addGroup(jpanFondoLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(lblPalabrasClave)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
-                    .addComponent(btnCancelar))
+                    .addComponent(btnCancelar)
+                    .addComponent(btnModificar))
                 .addGap(26, 26, 26))
         );
 
@@ -426,8 +464,10 @@ public class VRegistroCandidato extends javax.swing.JFrame {
     }//GEN-LAST:event_jDateChooser1KeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
     private com.toedter.calendar.JDateChooser calFechaNacimiento;
     private javax.swing.JComboBox<String> cmbEdoCivil;
     private javax.swing.JComboBox<String> cmbPais;
