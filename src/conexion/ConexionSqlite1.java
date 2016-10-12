@@ -5,59 +5,54 @@
  */
 package conexion;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class ConexionSqlite1
 {   
-    static Connection connection = null;
-         public static Connection Enlace() throws ClassNotFoundException{
+    
+         public  Connection Enlace(){
        
-        Class.forName("org.sqlite.JDBC");
-        
-        
-        try
+       Connection connection=null;     
+       try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ABUNASSAR PENARANDA\\Documents\\NetBeansProjects\\JetManager\\JetManager_backup_backup.db" );
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:\\\\Users\\\\Vicky\\\\Documents\\\\NetBeansProjects\\\\JetManager\\\\JetManager_backup.db" );
         }
-        catch (SQLException e){
+        catch (Exception e){
             System.err.println(e.getMessage());           
         }
-       
+        
          return connection;
 }
     //Para los insert, update, delete
-         public boolean ejecutar(String sql){
+         public static boolean ejecutar(String sql){
+             ConexionSqlite1 con= new ConexionSqlite1();
+             Connection connection= con.Enlace();
              Statement stm;
                        try{
            stm = connection.createStatement();
            stm.executeUpdate(sql);
            stm.close();
            connection.close();
-           return false;
+           return true;
           }catch(Exception e){
             System.err.println(e.getMessage()); 
           return false;
           }
          }
  //Para los select
-         public ResultSet consultar(String sql){
-        Connection c = null;
+         public static ResultSet consultar(String sql){
+       ConexionSqlite1 con= new ConexionSqlite1();
+       Connection c= con.Enlace();
         Statement stmt = null;
         ResultSet rs= null;
     try {
-      Class.forName("org.sqlite.JDBC");
-      c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ABUNASSAR PENARANDA\\Documents\\NetBeansProjects\\JetManager\\JetManager_backup_backup.db");
-     // c.setAutoCommit(false);
-      //System.out.println("Opened database successfully");
-
+        
       stmt = c.createStatement();
       rs = stmt.executeQuery( sql );
-
-      
-      /*rs.close();
-      stmt.close();
-      c.close();
-*/
-    } catch ( ClassNotFoundException | SQLException e ) {
+      //stmt.close();
+      //c.close();
+    } catch ( Exception e ) {
       System.err.println( e.getClass().getName() + ": " + e.getMessage() );
       System.exit(0);
     }
