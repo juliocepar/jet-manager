@@ -70,10 +70,13 @@ public class VRegistroCliente extends javax.swing.JFrame {
         DTPFechaIni = new com.toedter.calendar.JDateChooser();
         jLabel16 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
+        jpanEncabezado1 = new javax.swing.JPanel();
+        lblRegistrarCandidato1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("JetManager- Registrar Cliente");
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
@@ -239,6 +242,9 @@ public class VRegistroCliente extends javax.swing.JFrame {
         jTabbedPane1.addTab("Proyecto", jPanel2);
         jPanel2.getAccessibleContext().setAccessibleName("tabProyecto");
 
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 840, 483));
+        jTabbedPane1.getAccessibleContext().setAccessibleName("tabPane");
+
         btnCancelar.setBackground(new java.awt.Color(255, 153, 51));
         btnCancelar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -247,30 +253,16 @@ public class VRegistroCliente extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 570, 90, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCancelar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jpanEncabezado1.setBackground(new java.awt.Color(255, 153, 51));
+        jpanEncabezado1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.getAccessibleContext().setAccessibleName("tabPane");
+        lblRegistrarCandidato1.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        lblRegistrarCandidato1.setText("REGISTRAR CLIENTES");
+        jpanEncabezado1.add(lblRegistrarCandidato1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 22, -1, -1));
+
+        getContentPane().add(jpanEncabezado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -483,6 +475,8 @@ public class VRegistroCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel jpanEncabezado1;
+    private javax.swing.JLabel lblRegistrarCandidato1;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtCodTelf;
     private javax.swing.JTextField txtCorreo;

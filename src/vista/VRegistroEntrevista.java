@@ -65,9 +65,13 @@ public class VRegistroEntrevista extends javax.swing.JFrame {
         cmbTipo = new javax.swing.JComboBox<>();
         btnSalir = new javax.swing.JButton();
         cmbRif = new javax.swing.JComboBox<>();
+        jpanEncabezado1 = new javax.swing.JPanel();
+        lblRegistrarCandidato1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("JetManager-Registrar Entrevista");
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -215,18 +219,16 @@ public class VRegistroEntrevista extends javax.swing.JFrame {
         cmbRif.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "V", "J", "E" }));
         jPanel1.add(cmbRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 50, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 760, 597));
+
+        jpanEncabezado1.setBackground(new java.awt.Color(255, 153, 51));
+        jpanEncabezado1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblRegistrarCandidato1.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        lblRegistrarCandidato1.setText("REGISTRAR ENTREVISTAS");
+        jpanEncabezado1.add(lblRegistrarCandidato1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 22, -1, -1));
+
+        getContentPane().add(jpanEncabezado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -424,6 +426,8 @@ public class VRegistroEntrevista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpanEncabezado1;
+    private javax.swing.JLabel lblRegistrarCandidato1;
     private javax.swing.JTextField txtEntrevistador;
     private javax.swing.JTextField txtNomCandidato;
     private javax.swing.JTextArea txtObservaciones;

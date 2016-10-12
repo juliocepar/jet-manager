@@ -55,12 +55,14 @@ public class VConsultaCliente extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
+        jpanEncabezado1 = new javax.swing.JPanel();
+        lblRegistrarCandidato1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("JetManager- Consultar Clientes");
         setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,11 +196,6 @@ public class VConsultaCliente extends javax.swing.JFrame {
         jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, -1));
         btnAceptar.setVisible(false);
 
-        jLabel10.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Consultar Cliente");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         btnBuscar.setBackground(new java.awt.Color(255, 153, 51));
         btnBuscar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btnBuscar.setText("Buscar");
@@ -210,26 +207,16 @@ public class VConsultaCliente extends javax.swing.JFrame {
         jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, -1, -1));
         btnCancelar.setVisible(false);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 776, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 4, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 4, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 4, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 5, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 77, 768, 460));
+
+        jpanEncabezado1.setBackground(new java.awt.Color(255, 153, 51));
+        jpanEncabezado1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblRegistrarCandidato1.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        lblRegistrarCandidato1.setText("CONSULTAR CLIENTE");
+        jpanEncabezado1.add(lblRegistrarCandidato1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 22, -1, -1));
+
+        getContentPane().add(jpanEncabezado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -407,7 +394,6 @@ this.btnBuscar.setEnabled(false);        // TODO add your handling code here:
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -418,6 +404,8 @@ this.btnBuscar.setEnabled(false);        // TODO add your handling code here:
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpanEncabezado1;
+    private javax.swing.JLabel lblRegistrarCandidato1;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtCodTelf;
     private javax.swing.JTextArea txtDirCliente;

@@ -49,7 +49,8 @@ public class VConsultarFaltas extends javax.swing.JFrame {
         jpanEncabezado = new javax.swing.JPanel();
         lblRegistrarCandidato = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 

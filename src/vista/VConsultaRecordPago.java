@@ -89,10 +89,6 @@ public class VConsultaRecordPago extends javax.swing.JFrame {
         return lblTipoDePago;
     }
 
-    public JLabel getLblTitulo() {
-        return lblTitulo;
-    }
-
     public JPanel getPanRecordPagos() {
         return panRecordPagos;
     }
@@ -176,8 +172,9 @@ public class VConsultaRecordPago extends javax.swing.JFrame {
     private void initComponents() {
 
         btngroupFiltrarPor = new javax.swing.ButtonGroup();
+        jpanEncabezado = new javax.swing.JPanel();
+        lblRegistrarCandidato = new javax.swing.JLabel();
         panRecordPagos = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
         lblFiltrarPor = new javax.swing.JLabel();
         radiobtnProyecto = new javax.swing.JRadioButton();
         radiobtnEmpleado = new javax.swing.JRadioButton();
@@ -205,21 +202,40 @@ public class VConsultaRecordPago extends javax.swing.JFrame {
         txtHorasLaborables = new javax.swing.JTextField();
         scrollpanReporteMes = new javax.swing.JScrollPane();
         tableReporteMes = new javax.swing.JTable();
+        jpanEncabezado1 = new javax.swing.JPanel();
+        lblRegistrarCandidato1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jpanEncabezado.setBackground(new java.awt.Color(255, 153, 51));
+
+        lblRegistrarCandidato.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        lblRegistrarCandidato.setText("Gestionar candidato");
+
+        javax.swing.GroupLayout jpanEncabezadoLayout = new javax.swing.GroupLayout(jpanEncabezado);
+        jpanEncabezado.setLayout(jpanEncabezadoLayout);
+        jpanEncabezadoLayout.setHorizontalGroup(
+            jpanEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanEncabezadoLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(lblRegistrarCandidato)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jpanEncabezadoLayout.setVerticalGroup(
+            jpanEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanEncabezadoLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblRegistrarCandidato)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panRecordPagos.setBackground(new java.awt.Color(102, 102, 102));
         panRecordPagos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panRecordPagos.setForeground(new java.awt.Color(204, 204, 204));
         panRecordPagos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTitulo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("CONSULTAR RECORD DE PAGOS");
-        lblTitulo.setFocusable(false);
-        panRecordPagos.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
         lblFiltrarPor.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblFiltrarPor.setForeground(new java.awt.Color(255, 255, 255));
@@ -528,18 +544,18 @@ public class VConsultaRecordPago extends javax.swing.JFrame {
         panRecordPagos.add(scrollpanReporteMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 990, 390));
         scrollpanReporteMes.setVisible(false);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panRecordPagos, javax.swing.GroupLayout.DEFAULT_SIZE, 1009, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panRecordPagos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(panRecordPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1011, 580));
 
-        setSize(new java.awt.Dimension(1025, 578));
+        jpanEncabezado1.setBackground(new java.awt.Color(255, 153, 51));
+        jpanEncabezado1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblRegistrarCandidato1.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        lblRegistrarCandidato1.setText("CONSULTAR RECORD DE PAGOS");
+        jpanEncabezado1.add(lblRegistrarCandidato1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 22, -1, -1));
+
+        getContentPane().add(jpanEncabezado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1011, 80));
+
+        setSize(new java.awt.Dimension(1027, 685));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -753,15 +769,18 @@ scrollpanReporteMes.setVisible(false);// TODO add your handling code here:
     private javax.swing.JComboBox<String> cmbboxEmpleadoConsultar;
     private javax.swing.JComboBox<String> cmbboxMesConsultar;
     private javax.swing.JComboBox<String> cmbboxProyectoConsultar;
+    private javax.swing.JPanel jpanEncabezado;
+    private javax.swing.JPanel jpanEncabezado1;
     private javax.swing.JLabel lblFiltrarPor;
     private javax.swing.JLabel lblHorasLaborables;
     private javax.swing.JLabel lblMesConsultar;
     private javax.swing.JLabel lblNombreEmpleadoConsultar;
     private javax.swing.JLabel lblNombreProyectoConsultar;
+    private javax.swing.JLabel lblRegistrarCandidato;
+    private javax.swing.JLabel lblRegistrarCandidato1;
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTipoDeMoneda;
     private javax.swing.JLabel lblTipoDePago;
-    private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panRecordPagos;
     private javax.swing.JRadioButton radiobtnEmpleado;
     private javax.swing.JRadioButton radiobtnMes;

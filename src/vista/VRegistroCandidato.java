@@ -150,9 +150,10 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
         setForeground(new java.awt.Color(153, 153, 153));
+        setResizable(false);
 
         jpanFondo.setBackground(new java.awt.Color(102, 102, 102));
 

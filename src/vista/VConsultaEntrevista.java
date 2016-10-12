@@ -55,9 +55,10 @@ public class VConsultaEntrevista extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jpanEncabezado1 = new javax.swing.JPanel();
+        lblRegistrarCandidato1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("JetManager- Consultar Entrevistas");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -226,12 +227,16 @@ public class VConsultaEntrevista extends javax.swing.JFrame {
         btnConsultar.setText("Consultar");
         jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Consultar Entrevistas");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 740, 600));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 600));
+        jpanEncabezado1.setBackground(new java.awt.Color(255, 153, 51));
+        jpanEncabezado1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblRegistrarCandidato1.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        lblRegistrarCandidato1.setText("CONSULTAR ENTREVISTAS");
+        jpanEncabezado1.add(lblRegistrarCandidato1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 22, -1, -1));
+
+        getContentPane().add(jpanEncabezado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -383,13 +388,14 @@ public class VConsultaEntrevista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JPanel jpanEncabezado1;
+    private javax.swing.JLabel lblRegistrarCandidato1;
     private javax.swing.JRadioButton radCandidato;
     private javax.swing.JRadioButton radFecha;
     private javax.swing.JRadioButton radProy;

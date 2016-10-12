@@ -19,9 +19,10 @@ public class JetManager  {
     public static void main(String[] args) throws SQLException {
         
         // TODO code application logic here
-        new controlador.CRegistroCandidato();
+        //new controlador.CRegistroCandidato();
         //new controlador.CConsultaRecordPago();
         //new controlador.CRegistroEntrevista();
+        new controlador.CMenuPrincipal();
     }
     
 }

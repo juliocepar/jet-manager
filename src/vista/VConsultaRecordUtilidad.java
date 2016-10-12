@@ -67,9 +67,6 @@ public class VConsultaRecordUtilidad extends javax.swing.JFrame {
         return lblNombreProyectoConsultar;
     }
 
-    public JLabel getLblTitulo() {
-        return lblTitulo;
-    }
 
     public JPanel getPanConsultarUtilidad() {
         return panConsultarUtilidad;
@@ -125,7 +122,6 @@ public class VConsultaRecordUtilidad extends javax.swing.JFrame {
 
         btngroupFiltrarPor = new javax.swing.ButtonGroup();
         panConsultarUtilidad = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
         lblFiltrarPor = new javax.swing.JLabel();
         radiobtnProyecto = new javax.swing.JRadioButton();
         radiobtnMes = new javax.swing.JRadioButton();
@@ -141,17 +137,15 @@ public class VConsultaRecordUtilidad extends javax.swing.JFrame {
         tableReporteProyecto = new javax.swing.JTable();
         scrollpaneReporteMes = new javax.swing.JScrollPane();
         tableReporteMes = new javax.swing.JTable();
+        jpanEncabezado1 = new javax.swing.JPanel();
+        lblRegistrarCandidato1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panConsultarUtilidad.setBackground(new java.awt.Color(102, 102, 102));
         panConsultarUtilidad.setForeground(new java.awt.Color(102, 102, 102));
         panConsultarUtilidad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTitulo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("CONSULTAR UTILIDAD");
-        panConsultarUtilidad.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         lblFiltrarPor.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblFiltrarPor.setForeground(new java.awt.Color(255, 255, 255));
@@ -330,18 +324,16 @@ public class VConsultaRecordUtilidad extends javax.swing.JFrame {
         panConsultarUtilidad.add(scrollpaneReporteMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 990, 70));
         scrollpaneReporteMes.setVisible(false);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panConsultarUtilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 1019, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panConsultarUtilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(panConsultarUtilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1019, 310));
+
+        jpanEncabezado1.setBackground(new java.awt.Color(255, 153, 51));
+        jpanEncabezado1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblRegistrarCandidato1.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        lblRegistrarCandidato1.setText("CONSULTAR RECORD DE PAGOS");
+        jpanEncabezado1.add(lblRegistrarCandidato1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 22, -1, -1));
+
+        getContentPane().add(jpanEncabezado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1019, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -477,11 +469,12 @@ public class VConsultaRecordUtilidad extends javax.swing.JFrame {
     private javax.swing.ButtonGroup btngroupFiltrarPor;
     private javax.swing.JComboBox<String> cmbboxMesConsultar;
     private javax.swing.JComboBox<String> cmbboxProyectoConsultar;
+    private javax.swing.JPanel jpanEncabezado1;
     private javax.swing.JLabel lblFiltrarPor;
     private javax.swing.JLabel lblHorasLaborables;
     private javax.swing.JLabel lblMesConsultar;
     private javax.swing.JLabel lblNombreProyectoConsultar;
-    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblRegistrarCandidato1;
     private javax.swing.JPanel panConsultarUtilidad;
     private javax.swing.JRadioButton radiobtnMes;
     private javax.swing.JRadioButton radiobtnProyecto;
