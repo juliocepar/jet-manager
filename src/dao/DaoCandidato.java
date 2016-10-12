@@ -5,7 +5,7 @@
  */
 package dao;
 
-import Modelo.Validaciones;
+import modelo.Validaciones;
 import conexion.ConexionSqlite1;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
