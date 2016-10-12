@@ -16,7 +16,7 @@ public class ConexionSqlite1
         
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:JetManager_backup.db" );
+            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ABUNASSAR PENARANDA\\Documents\\NetBeansProjects\\JetManager\\JetManager_backup_backup.db" );
         }
         catch (SQLException e){
             System.err.println(e.getMessage());           
@@ -45,18 +45,19 @@ public class ConexionSqlite1
         ResultSet rs= null;
     try {
       Class.forName("org.sqlite.JDBC");
-      c = DriverManager.getConnection("jdbc:sqlite:test.db");
-      c.setAutoCommit(false);
-      System.out.println("Opened database successfully");
+      c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ABUNASSAR PENARANDA\\Documents\\NetBeansProjects\\JetManager\\JetManager_backup_backup.db");
+     // c.setAutoCommit(false);
+      //System.out.println("Opened database successfully");
 
       stmt = c.createStatement();
       rs = stmt.executeQuery( sql );
 
       
-      rs.close();
+      /*rs.close();
       stmt.close();
       c.close();
-    } catch ( Exception e ) {
+*/
+    } catch ( ClassNotFoundException | SQLException e ) {
       System.err.println( e.getClass().getName() + ": " + e.getMessage() );
       System.exit(0);
     }

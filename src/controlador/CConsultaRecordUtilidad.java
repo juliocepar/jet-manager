@@ -5,8 +5,10 @@
  */
 package controlador;
 
+import dao.DaoProyecto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import vista.Mensajes;
 import vista.VConsultaRecordUtilidad;
@@ -24,6 +26,8 @@ public class CConsultaRecordUtilidad implements ActionListener{
         vrecuti = new VConsultaRecordUtilidad();
         vrecuti.setVisible(true);
         vrecuti.Agregar_Listener(this);
+        
+        CargarProyectos();
        
     }
 
@@ -99,6 +103,23 @@ public class CConsultaRecordUtilidad implements ActionListener{
         
         
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void CargarProyectos() throws SQLException {
+        
+        String nom;
+        DaoProyecto daoTipo = new DaoProyecto();
+        ResultSet RegistroProy;
+        RegistroProy = daoTipo.ConsultarProyectos();
+
+        while (RegistroProy.next()) {
+            String estatus = "A";
+            if (RegistroProy.getString("ProyEstatus").equals(estatus)) {
+                nom = RegistroProy.getString("ProyTitulo");
+                vrecuti.getCmbboxProyectoConsultar().addItem(nom);
+            }
+
+        }
     }
     
 }

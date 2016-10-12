@@ -4,25 +4,28 @@
  * and open the template in the editor.
  */
 package dao;
-import java.sql.ResultSet;
+
 import conexion.ConexionSqlite1;
+import java.sql.ResultSet;
+
 /**
  *
- * @author Vicky
+ * @author ABUNASSAR PENARANDA
  */
-public class DaoProyecto {
+public class DaoEmpleado {
     private static ConexionSqlite1 con;
     
     
-    public ResultSet ConsultarProyectos(){
+    public ResultSet ConsultarEmpleados(){
         ResultSet consulta;
         
         String sql;
         con = new ConexionSqlite1();
-        sql="SELECT * from TProyecto";
+        sql="SELECT * from TEmpleado";
         consulta= con.consultar(sql);
         
         
         return consulta;
     }
+    
 }

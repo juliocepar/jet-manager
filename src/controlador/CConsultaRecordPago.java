@@ -5,8 +5,12 @@
  */
 package controlador;
 
+import dao.DaoCandidato;
+import dao.DaoEmpleado;
+import dao.DaoProyecto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +32,9 @@ public class CConsultaRecordPago implements ActionListener {
         vrecpag.setVisible(true);
         vrecpag.Agregar_Listener(this);
         
-
+        CargarProyectos();
+        CargarEmpleados();
+       
     }
 
     @Override
@@ -176,5 +182,37 @@ public class CConsultaRecordPago implements ActionListener {
 
         throw new UnsupportedOperationException("Opcion no valida"); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    private void CargarProyectos() throws SQLException {
+        
+        String nom;
+        DaoProyecto daoTipo = new DaoProyecto();
+        ResultSet RegistroProy;
+        RegistroProy = daoTipo.ConsultarProyectos();
+
+        while (RegistroProy.next()) {
+            String estatus = "A";
+            if (RegistroProy.getString("ProyEstatus").equals(estatus)) {
+                nom = RegistroProy.getString("ProyTitulo");
+                vrecpag.getCmbboxProyectoConsultar().addItem(nom);
+            }
+
+        }
+
     }
+
+    private void CargarEmpleados() throws SQLException {
+         String nom;
+        DaoCandidato daoTipo = new DaoCandidato();
+        ResultSet RegistroEmp;
+        RegistroEmp = daoTipo.ConsultarCandidatos();
+
+        while (RegistroEmp.next()) {
+            String estatus = "A";
+            if (RegistroEmp.getString("CanEstatus").equals(estatus)) {
+                nom = RegistroEmp.getString("CanNombres");
+                vrecpag.getCmbboxEmpleadoConsultar().addItem(nom);
+            }
+    }
+}
+}

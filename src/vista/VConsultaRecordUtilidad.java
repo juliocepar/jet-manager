@@ -188,7 +188,7 @@ public class VConsultaRecordUtilidad extends javax.swing.JFrame {
         panConsultarUtilidad.add(radiobtnMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 56, -1, -1));
 
         cmbboxProyectoConsultar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        cmbboxProyectoConsultar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "1", "2" }));
+        cmbboxProyectoConsultar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
         cmbboxProyectoConsultar.setVisible(false);
         cmbboxProyectoConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

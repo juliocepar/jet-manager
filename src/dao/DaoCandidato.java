@@ -45,5 +45,17 @@ public class DaoCandidato {
         res = con.consultar(sql);
         return res;
     }
+    
+     public ResultSet ConsultarCandidatos(){
+        ResultSet consulta;
+        
+        String sql;
+        con = new ConexionSqlite1();
+        sql="SELECT * from TCandidato";
+        consulta= con.consultar(sql);
+        
+        
+        return consulta;
+    }
 }
 

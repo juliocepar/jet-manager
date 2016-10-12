@@ -6,8 +6,10 @@
 package conexion;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 //import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 //import java.sql.Statement;
 /**
  *
@@ -15,44 +17,31 @@ import java.sql.SQLException;
  */
 public class ConexionSQLite {
     
-     public static void main( String args[] )
-  {
-    Connection c;
-         c = null;
-    try {
-      Class.forName("org.sqlite.JDBC");
-      c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ABUNASSAR PENARANDA\\Documents\\JetManager_backup.db");
-    } catch ( ClassNotFoundException | SQLException e ) {
-      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-      System.exit(0);
-    }
-    System.out.println("Opened database successfully");
-  }
-}
+ 
     
     
 
-/*public static void main(String[] ars) throws ClassNotFoundException{
+public static void main(String[] ars) throws ClassNotFoundException{
        
         Class.forName("org.sqlite.JDBC");
         
         Connection connection = null;
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/ABUNASSAR PENARANDA/Documents/JetManager_backup.db" );
+            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ABUNASSAR PENARANDA\\Documents\\NetBeansProjects\\JetManager\\JetManager_backup_backup.db" );
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);
             
-            //statement.executeUpdate("drop table if exists TProyectos");
-            //statement.executeUpdate("create table TProyecto (id integer, name string)");
-            //statement.executeUpdate("insert into TProyecto values(1, 'Prueba') ");
+           // statement.executeUpdate("drop table if exists TProyectos");
+           // statement.executeUpdate("create table TProyecto (id integer, name string)");
+           // statement.executeUpdate("insert into TProyecto values(1, 'Prueba') ");
             //ResultSet rs= statement.executeQuery("select * from TProyecto ");
-         //   ResultSet rs2 = statement.executeQuery("Select * from TCliente");
+         //  ResultSet rs2 = statement.executeQuery("Select * from TProyecto");
             
-           // while (rs2.next()){
+         //  while (rs2.next()){
                // System.out.println("Name: " + rs.getString("name"));
                // System.out.println("ID: " + rs.getString("id"));
-             ///   System.out.println("Cliente " + rs2.getString("CliRif"));
+          //     System.out.println("Titulo " + rs2.getString("ProyTitulo"));
           //  }
             
         }
@@ -73,5 +62,5 @@ public class ConexionSQLite {
             
         }
     }
+
 }
-*/

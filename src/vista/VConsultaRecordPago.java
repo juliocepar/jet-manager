@@ -294,7 +294,7 @@ public class VConsultaRecordPago extends javax.swing.JFrame {
         panRecordPagos.add(radiobtnMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 56, -1, -1));
 
         cmbboxProyectoConsultar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        cmbboxProyectoConsultar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "1", "2" }));
+        cmbboxProyectoConsultar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
         cmbboxProyectoConsultar.setVisible(false);
         cmbboxProyectoConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,7 +343,7 @@ public class VConsultaRecordPago extends javax.swing.JFrame {
         panRecordPagos.add(lblNombreEmpleadoConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         cmbboxEmpleadoConsultar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        cmbboxEmpleadoConsultar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "1", "2" }));
+        cmbboxEmpleadoConsultar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
         cmbboxEmpleadoConsultar.setVisible(false);
         cmbboxEmpleadoConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
