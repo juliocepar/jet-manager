@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package modelo;
-import java.sql.*;
+
+import java.util.Date;
+
 /**
  *
  * @author jesus
@@ -12,26 +14,30 @@ import java.sql.*;
 
 
 public class MFaltas {
-    private int cedula;
+    private String cedula;
     private Date fecha;
-    private char tipo;
+    private String tipo;
     private String descripcion;
-    private int horas;    
+       
 
-    public MFaltas(int cedula, Date fecha, char tipo, String descripcion, int horas) {
+    public MFaltas(String cedula, Date fecha, String tipo, String descripcion) {
         super();
         this.cedula = cedula;
         this.fecha = fecha;
         this.tipo = tipo;
         this.descripcion = descripcion;
-        this.horas = horas;
+        
     }
 
-    public int getCedula() {
+    public MFaltas() {
+        
+    }
+
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
@@ -43,11 +49,11 @@ public class MFaltas {
         this.fecha = fecha;
     }
 
-    public char getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -58,15 +64,6 @@ public class MFaltas {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    public int getHoras() {
-        return horas;
-    }
-
-    public void setHoras(int horas) {
-        this.horas = horas;
-    }
-    
-    
+  
        }
     
