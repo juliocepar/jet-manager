@@ -28,8 +28,16 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         ((JTextField)calFechaNacimiento.getDateEditor()).setEditable(false);
     }
 
+    public JButton getBtnSalir() {
+        return btnSalir;
+    }
+
     public JButton getBtnBuscar() {
         return btnBuscar;
+    }
+
+    public JButton getBtnEliminar() {
+        return btnEliminar;
     }
 
     public JButton getBtnModificar() {
@@ -59,8 +67,6 @@ public class VRegistroCandidato extends javax.swing.JFrame {
     public JDateChooser getCalFechaNacimiento() {
         return calFechaNacimiento;
     }
-    
-    
 
     public JLabel getLblCodTelefono() {
         return lblCodTelefono;
@@ -101,6 +107,10 @@ public class VRegistroCandidato extends javax.swing.JFrame {
     public void agregarListener(ActionListener al) {
         this.btnCancelar.addActionListener(al);
         this.btnGuardar.addActionListener(al);
+        this.btnBuscar.addActionListener(al);
+        this.btnModificar.addActionListener(al);
+        this.btnEliminar.addActionListener(al);
+        this.btnSalir.addActionListener(al);
     }
     
     public void agregarItemListener(ItemListener il) {
@@ -149,6 +159,8 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         calFechaNacimiento = new com.toedter.calendar.JDateChooser();
         btnModificar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -160,7 +172,7 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         jpanEncabezado.setBackground(new java.awt.Color(255, 153, 51));
 
         lblRegistrarCandidato.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
-        lblRegistrarCandidato.setText("Gestionar candidato");
+        lblRegistrarCandidato.setText("GESTIONAR CANDIDATO");
 
         javax.swing.GroupLayout jpanEncabezadoLayout = new javax.swing.GroupLayout(jpanEncabezado);
         jpanEncabezado.setLayout(jpanEncabezadoLayout);
@@ -299,6 +311,7 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         btnCancelar.setEnabled(false);
 
         calFechaNacimiento.setEnabled(false);
+        calFechaNacimiento.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
         btnModificar.setBackground(new java.awt.Color(255, 153, 51));
         btnModificar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -310,70 +323,81 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         btnBuscar.setText("Buscar");
         btnBuscar.setEnabled(false);
 
+        btnEliminar.setBackground(new java.awt.Color(255, 153, 51));
+        btnEliminar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setEnabled(false);
+
+        btnSalir.setBackground(new java.awt.Color(255, 153, 51));
+        btnSalir.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnSalir.setText("Salir");
+
         javax.swing.GroupLayout jpanFondoLayout = new javax.swing.GroupLayout(jpanFondo);
         jpanFondo.setLayout(jpanFondoLayout);
         jpanFondoLayout.setHorizontalGroup(
             jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jpanEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jpanFondoLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanFondoLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCorreo)
+                            .addComponent(jScrollPane1)
+                            .addGroup(jpanFondoLayout.createSequentialGroup()
+                                .addComponent(lblFechaNacimiento)
+                                .addGap(9, 9, 9)
+                                .addComponent(calFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jpanFondoLayout.createSequentialGroup()
+                                .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpanFondoLayout.createSequentialGroup()
+                                        .addComponent(lblNombres)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblDireccion)
+                                    .addComponent(lblCorreo))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
                         .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpanFondoLayout.createSequentialGroup()
-                                .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCorreo)
-                                    .addComponent(jScrollPane1)
-                                    .addGroup(jpanFondoLayout.createSequentialGroup()
-                                        .addComponent(lblFechaNacimiento)
-                                        .addGap(9, 9, 9)
-                                        .addComponent(calFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jpanFondoLayout.createSequentialGroup()
-                                        .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jpanFondoLayout.createSequentialGroup()
-                                                .addComponent(lblNombres)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lblDireccion)
-                                            .addComponent(lblCorreo))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jpanFondoLayout.createSequentialGroup()
-                                        .addComponent(lblApellidos)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jpanFondoLayout.createSequentialGroup()
-                                        .addComponent(lblPais)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cmbPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jpanFondoLayout.createSequentialGroup()
-                                        .addComponent(lblEdoCivil)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cmbEdoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jpanFondoLayout.createSequentialGroup()
-                                        .addComponent(lblCiudad)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jpanFondoLayout.createSequentialGroup()
-                                        .addComponent(lblTelefono)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblCodTelefono)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblApellidos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpanFondoLayout.createSequentialGroup()
-                                .addGap(4, 4, 4)
+                                .addComponent(lblPais)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpanFondoLayout.createSequentialGroup()
+                                .addComponent(lblEdoCivil)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbEdoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpanFondoLayout.createSequentialGroup()
+                                .addComponent(lblCiudad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpanFondoLayout.createSequentialGroup()
+                                .addComponent(lblTelefono)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblCodTelefono)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jpanFondoLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpanFondoLayout.createSequentialGroup()
+                                .addComponent(btnGuardar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnModificar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCancelar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSalir))
+                            .addGroup(jpanFondoLayout.createSequentialGroup()
                                 .addComponent(lblPalabrasClave)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanFondoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnModificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancelar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnGuardar)
-                        .addGap(12, 12, 12)))
+                                .addComponent(jScrollPane2)))))
                 .addGap(21, 21, 21))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanFondoLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -442,7 +466,9 @@ public class VRegistroCandidato extends javax.swing.JFrame {
                 .addGroup(jpanFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnCancelar)
-                    .addComponent(btnModificar))
+                    .addComponent(btnModificar)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnSalir))
                 .addGap(26, 26, 26))
         );
 
@@ -467,8 +493,10 @@ public class VRegistroCandidato extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnSalir;
     private com.toedter.calendar.JDateChooser calFechaNacimiento;
     private javax.swing.JComboBox<String> cmbEdoCivil;
     private javax.swing.JComboBox<String> cmbPais;

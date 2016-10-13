@@ -21,8 +21,21 @@ public class MCandidato {
     private String ciudad;
     private String pais;
     private String email;
+    private String codTelefono;
     private String telefono;
     private String[] palabrasClave;
+
+    public String getCodTelefono() {
+        return codTelefono;
+    }
+
+    public void setCodTelefono(String codTelefono) {
+        this.codTelefono = codTelefono;
+    }
+
+    public MCandidato() {
+        super();
+    }
     
     /**
      * @param rif
@@ -34,13 +47,14 @@ public class MCandidato {
      * @param ciudad
      * @param pais
      * @param email
+     * @param codTelefono
      * @param telefono
      * @param palabrasClave
      */
     public MCandidato(String rif, String nombres, String apellidos,
                 Date fechaNacimiento, char edoCivil, String direccion,
                 String ciudad, String pais, String email, String telefono,
-                String[] palabrasClave) {
+                String codTelefono, String[] palabrasClave) {
     	super();
     	this.rif = rif;
     	this.nombres = nombres;
@@ -51,6 +65,7 @@ public class MCandidato {
     	this.ciudad = ciudad;
     	this.pais = pais;
     	this.email = email;
+        this.codTelefono = codTelefono;
     	this.telefono = telefono;
 	this.palabrasClave = palabrasClave;
     }
