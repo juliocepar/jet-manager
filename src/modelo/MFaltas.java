@@ -15,12 +15,12 @@ import java.util.Date;
 
 public class MFaltas {
     private String cedula;
-    private Date fecha;
+    private String fecha;
     private String tipo;
     private String descripcion;
        
 
-    public MFaltas(String cedula, Date fecha, String tipo, String descripcion) {
+    public MFaltas(String cedula, String fecha, String tipo, String descripcion) {
         super();
         this.cedula = cedula;
         this.fecha = fecha;
@@ -41,11 +41,11 @@ public class MFaltas {
         this.cedula = cedula;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

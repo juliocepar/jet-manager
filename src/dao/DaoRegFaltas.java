@@ -25,11 +25,13 @@ public class DaoRegFaltas {
     public void Registrarfal(MFaltas fal){
         String sql = "INSERT INTO TFalta (FalIdEmpleado, FalFecha, FalJustificada, FalObservaciones, FalEstatus) VALUES (";
         sql += Validaciones.Apost(mf.getCedula());
-        sql += Validaciones.Apost(new SimpleDateFormat("yyyy-MM-dd").format(mf.getFecha())) + ", ";
+        sql += "'"+ mf.getFecha() + "',";
         sql += Validaciones.Apost(mf.getTipo()) + ", ";
         sql += Validaciones.Apost(String.valueOf(mf.getDescripcion())) + ", ";
         sql += "'A')";
+        System.out.println(sql);
         con.ejecutar(sql);
+        
         
     
     }

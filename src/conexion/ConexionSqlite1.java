@@ -16,7 +16,7 @@ public class ConexionSqlite1
        try
         {
             Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:\\\\NetBeansProjects\\\\jet-manager\\\\JetManager_backup_backup.db" );
+            connection = DriverManager.getConnection("jdbc:sqlite:F:\\Documents\\NetBeansProjects\\JetManager_backup.db" );
         }
         catch (Exception e){
             System.err.println(e.getMessage());           

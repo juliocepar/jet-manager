@@ -22,7 +22,8 @@ public class JetManager  {
         //new controlador.CRegistroCandidato();
         //new controlador.CConsultaRecordPago();
         //new controlador.CRegistroEntrevista();
-        new controlador.CMenuPrincipal();
+        //new controlador.CMenuPrincipal();
+        new controlador.CRegistrarFaltas();
     }
     
 }
