@@ -23,6 +23,14 @@ public class VMenuPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtnAsignarCandidato() {
+        return btnAsignarCandidato;
+    }
+
+    public JButton getBtnConsultarCandidatos() {
+        return btnConsultarCandidatos;
+    }
+
     public JButton getBtnConsultarCliente() {
         return btnConsultarCliente;
     }
@@ -151,8 +159,8 @@ public class VMenuPrincipal extends javax.swing.JFrame {
     this.jmenRegistrarCandidato.addActionListener(accion);
     this.jmenRegistrarEntrevistas.addActionListener(accion);
     this.jmenRegistrarFaltas.addActionListener(accion);
-    
-    
+    this.btnConsultarCandidatos.addActionListener(accion);
+    this.btnAsignarCandidato.addActionListener(accion);
     
 }
 
@@ -179,6 +187,8 @@ public class VMenuPrincipal extends javax.swing.JFrame {
         btnConsultarFaltas = new javax.swing.JButton();
         btnConsultarRecordPagos = new javax.swing.JButton();
         btnConsultarRecordUtilidad = new javax.swing.JButton();
+        btnConsultarCandidatos = new javax.swing.JButton();
+        btnAsignarCandidato = new javax.swing.JButton();
         jpanEncabezado = new javax.swing.JPanel();
         lblRegistrarCandidato = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -212,8 +222,6 @@ public class VMenuPrincipal extends javax.swing.JFrame {
 
         panMenu.setBackground(new java.awt.Color(51, 51, 51));
         panMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\ABUNASSAR PENARANDA\\Desktop\\JETLOGO.png")); // NOI18N
         panMenu.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 150));
 
         btnRegistrarFaltas.setBackground(new java.awt.Color(255, 153, 51));
@@ -224,7 +232,7 @@ public class VMenuPrincipal extends javax.swing.JFrame {
                 btnRegistrarFaltasActionPerformed(evt);
             }
         });
-        panMenu.add(btnRegistrarFaltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
+        panMenu.add(btnRegistrarFaltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 170, -1));
 
         btnSalir.setBackground(new java.awt.Color(255, 153, 51));
         btnSalir.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -238,13 +246,13 @@ public class VMenuPrincipal extends javax.swing.JFrame {
 
         btnRegistrarCandidato.setBackground(new java.awt.Color(255, 153, 51));
         btnRegistrarCandidato.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        btnRegistrarCandidato.setText("Registrar Candidato");
+        btnRegistrarCandidato.setText("Gestionar Candidato");
         btnRegistrarCandidato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarCandidatoActionPerformed(evt);
             }
         });
-        panMenu.add(btnRegistrarCandidato, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 160, -1));
+        panMenu.add(btnRegistrarCandidato, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 170, -1));
 
         btnRegistrarEntrevista.setBackground(new java.awt.Color(255, 153, 51));
         btnRegistrarEntrevista.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -254,27 +262,27 @@ public class VMenuPrincipal extends javax.swing.JFrame {
                 btnRegistrarEntrevistaActionPerformed(evt);
             }
         });
-        panMenu.add(btnRegistrarEntrevista, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+        panMenu.add(btnRegistrarEntrevista, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 170, -1));
 
         btnRegistrarCliente.setBackground(new java.awt.Color(255, 153, 51));
         btnRegistrarCliente.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btnRegistrarCliente.setText("Registrar Cliente");
-        panMenu.add(btnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+        panMenu.add(btnRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 170, -1));
 
         btnConsultarCliente.setBackground(new java.awt.Color(255, 153, 51));
         btnConsultarCliente.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btnConsultarCliente.setText("Consultar Cliente");
-        panMenu.add(btnConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
+        panMenu.add(btnConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 170, -1));
 
         btnConsultarEntrevista.setBackground(new java.awt.Color(255, 153, 51));
         btnConsultarEntrevista.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btnConsultarEntrevista.setText("Consultar Entrevista");
-        panMenu.add(btnConsultarEntrevista, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
+        panMenu.add(btnConsultarEntrevista, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 170, -1));
 
         btnConsultarFaltas.setBackground(new java.awt.Color(255, 153, 51));
         btnConsultarFaltas.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btnConsultarFaltas.setText("Consultar Faltas");
-        panMenu.add(btnConsultarFaltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
+        panMenu.add(btnConsultarFaltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 170, -1));
 
         btnConsultarRecordPagos.setBackground(new java.awt.Color(255, 153, 51));
         btnConsultarRecordPagos.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -284,7 +292,7 @@ public class VMenuPrincipal extends javax.swing.JFrame {
                 btnConsultarRecordPagosActionPerformed(evt);
             }
         });
-        panMenu.add(btnConsultarRecordPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+        panMenu.add(btnConsultarRecordPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         btnConsultarRecordUtilidad.setBackground(new java.awt.Color(255, 153, 51));
         btnConsultarRecordUtilidad.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -294,7 +302,27 @@ public class VMenuPrincipal extends javax.swing.JFrame {
                 btnConsultarRecordUtilidadActionPerformed(evt);
             }
         });
-        panMenu.add(btnConsultarRecordUtilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, -1, -1));
+        panMenu.add(btnConsultarRecordUtilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, -1, -1));
+
+        btnConsultarCandidatos.setBackground(new java.awt.Color(255, 153, 51));
+        btnConsultarCandidatos.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        btnConsultarCandidatos.setText("Consultar candidatos");
+        btnConsultarCandidatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarCandidatosActionPerformed(evt);
+            }
+        });
+        panMenu.add(btnConsultarCandidatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 170, -1));
+
+        btnAsignarCandidato.setBackground(new java.awt.Color(255, 153, 51));
+        btnAsignarCandidato.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        btnAsignarCandidato.setText("Asignar Candidato");
+        btnAsignarCandidato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarCandidatoActionPerformed(evt);
+            }
+        });
+        panMenu.add(btnAsignarCandidato, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 170, -1));
 
         getContentPane().add(panMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 740, 350));
 
@@ -429,6 +457,14 @@ public class VMenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarRecordUtilidadActionPerformed
 
+    private void btnConsultarCandidatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarCandidatosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultarCandidatosActionPerformed
+
+    private void btnAsignarCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarCandidatoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAsignarCandidatoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -465,6 +501,8 @@ public class VMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAsignarCandidato;
+    private javax.swing.JButton btnConsultarCandidatos;
     private javax.swing.JButton btnConsultarCliente;
     private javax.swing.JButton btnConsultarEntrevista;
     private javax.swing.JButton btnConsultarFaltas;

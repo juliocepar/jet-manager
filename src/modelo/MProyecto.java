@@ -16,6 +16,10 @@ public class MProyecto {
     private int proyNroCandidatos;
     private Date proyFechaInicio, proyFechaFin;
 
+    public MProyecto() {
+        super();
+    }
+
     public MProyecto(String proyId, String proyTitulo, String proyIdCliente, String proyIdioma, String proyDesc, int proyNroCandidatos, Date proyFechaInicio, Date proyFechaFin) {
         this.proyId = proyId;
         this.proyTitulo = proyTitulo;

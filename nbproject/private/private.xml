@@ -3,15 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeansProjects/jet-manager/src/conexion/ConexionSqlite1.java</file>
-            <file>file:/D:/NetBeansProjects/jet-manager/src/controlador/CMenuPrincipal.java</file>
-            <file>file:/D:/NetBeansProjects/jet-manager/src/dao/DaoCandidato.java</file>
-            <file>file:/D:/NetBeansProjects/jet-manager/src/modelo/MCandidato.java</file>
-            <file>file:/D:/NetBeansProjects/jet-manager/src/vista/VConsultaRecordUtilidad.java</file>
-            <file>file:/D:/NetBeansProjects/jet-manager/src/vista/VConsultaRecordPago.java</file>
-            <file>file:/D:/NetBeansProjects/jet-manager/src/controlador/CRegistroCandidato.java</file>
-            <file>file:/D:/NetBeansProjects/jet-manager/src/controlador/CConsultaRecordPago.java</file>
-            <file>file:/D:/NetBeansProjects/jet-manager/src/vista/VConsultaCandidatos.java</file>
+            <file>file:/D:/NetBeansProjects/jet-manager/src/controlador/CConsultaCandidatos.java</file>
         </group>
     </open-files>
 </project-private>

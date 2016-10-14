@@ -242,7 +242,7 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         txaDireccion.setLineWrap(true);
         txaDireccion.setRows(3);
         txaDireccion.setWrapStyleWord(true);
-        txaDireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txaDireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txaDireccion.setEnabled(false);
         jScrollPane1.setViewportView(txaDireccion);
 
@@ -294,9 +294,9 @@ public class VRegistroCandidato extends javax.swing.JFrame {
         txaPalabrasClave.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txaPalabrasClave.setLineWrap(true);
         txaPalabrasClave.setRows(5);
-        txaPalabrasClave.setToolTipText("Escribe las palabras clave separadas con comas");
+        txaPalabrasClave.setToolTipText("Escribe las palabras clave separadas con espacios");
         txaPalabrasClave.setWrapStyleWord(true);
-        txaPalabrasClave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txaPalabrasClave.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txaPalabrasClave.setEnabled(false);
         jScrollPane2.setViewportView(txaPalabrasClave);
 

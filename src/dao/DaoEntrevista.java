@@ -26,5 +26,26 @@ public class DaoEntrevista {
         
                 return cn.ejecutar(sql);
                 }
+    
+    public ResultSet consultarEntrevistasPorCandidato(String rif) {
+        ResultSet res;
+        sql = "SELECT * FROM TEntrevista WHERE EntRifCandidato = '" + rif + "'";
+        res = ConexionSqlite1.consultar(sql);
+        return res;
+    }
+    
+    public ResultSet consultarCandidatosNoAsignados() {
+        ResultSet res;
+        sql = "SELECT EntRifCandidato, CanNombres, CanApellidos, CanPais, CanEmail FROM TEntrevista, TCandidato "
+                + "WHERE EntRifCandidato = CanRif AND EntResultado != 'A'";
+        res = ConexionSqlite1.consultar(sql);
+        return res;
+    }
+    
+    public void modificarEstatusEntrevista(String rif, char estatus) {
+        sql = "UPDATE TEntrevista SET EntResultado = '" + estatus + "' WHERE EntRifCandidato = '" + rif + "'";
+        ConexionSqlite1.ejecutar(sql);
+    }
+    
 }
 

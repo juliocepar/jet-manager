@@ -5,6 +5,7 @@
  */
 package dao;
 
+import modelo.MEmpleado;
 import conexion.ConexionSqlite1;
 import java.sql.ResultSet;
 
@@ -15,14 +16,23 @@ import java.sql.ResultSet;
 public class DaoEmpleado {
     private static ConexionSqlite1 con;
     
+    public void insertarEmpleados(MEmpleado emp) {
+        String sql = "INSERT INTO TEmpleado (EmpRif, EmpTipoMoneda, EmpTipoPago, EmpSalario, EmpEstatus) VALUES(";
+        sql += "'" + emp.getRif() + "', ";
+        sql += "'" + emp.getTipoMoneda() + "', ";
+        sql += "'" + emp.getTipoPago() + "', ";
+        sql += emp.getSalario() + ", ";
+        sql += "'A')";
+        System.out.println("sql = " + sql);
+        ConexionSqlite1.ejecutar(sql);
+    }
     
     public ResultSet ConsultarEmpleados(){
         ResultSet consulta;
         
         String sql;
-        con = new ConexionSqlite1();
         sql="SELECT * from TEmpleado";
-        consulta= con.consultar(sql);
+        consulta= ConexionSqlite1.consultar(sql);
         
         
         return consulta;

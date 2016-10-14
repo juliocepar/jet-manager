@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import conexion.ConexionSqlite1;
 import dao.DaoCandidato;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,11 +16,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import modelo.MCandidato;
@@ -33,8 +36,10 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
 
    private VRegistroCandidato vregcan;
    private MCandidato can;
+   private boolean modificar;
 
    public void inicializar() {
+       modificar = false;
        //Se borran todos los campos de texto y se seleccionan las opciones por defecto
        vregcan.getCmbPais().setSelectedIndex(0);
        vregcan.getTxtRif().setText("");
@@ -46,6 +51,7 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
        vregcan.getCmbPais().setSelectedIndex(0);
        vregcan.getTxtCiudad().setText("");
        vregcan.getTxtCorreo().setText("");
+       vregcan.getLblCodTelefono().setText("+1");
        vregcan.getTxtTelefono().setText("");
        vregcan.getTxaPalabrasClave().setText("");
        
@@ -206,6 +212,25 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
                     }
                 });
         
+        vregcan.getTxaPalabrasClave().addKeyListener(new KeyAdapter() {
+                    @Override
+                    public void keyTyped(KeyEvent e) {
+                        char c = e.getKeyChar();
+                        if(!Character.isLetterOrDigit(c)
+                                && !Character.isWhitespace(c)
+                                && c != '+' && c != '-' && c != '.') {
+                            e.consume();
+                        }
+                    }
+                    
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+                            e.consume();
+                        }
+                    }
+                });
+        
     }
    
     public int indiceEdoCivil(char e) {
@@ -221,6 +246,14 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
         }
     }
     
+    public void llenarPalabrasClave(String[] palabras) {
+        String text = "";
+        for(int i=0; i<palabras.length; i++) {
+            text += palabras[i] + " ";
+        }
+        vregcan.getTxaPalabrasClave().setText(text);
+    }
+    
     public void llenarCampos() {
         vregcan.getTxtNombres().setText(can.getNombres());
         vregcan.getTxtApellidos().setText(can.getApellidos());
@@ -232,7 +265,7 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
         vregcan.getTxtCorreo().setText(can.getEmail());
         vregcan.getLblCodTelefono().setText(can.getCodTelefono());
         vregcan.getTxtTelefono().setText(can.getTelefono());
-        //TODO Palabras clave del candidato
+        llenarPalabrasClave(can.getPalabrasClave());
     }
     
     public void traerResultados() {
@@ -261,11 +294,13 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
                    can.setRif(res.getString("CanRif"));
                    can.setNombres(res.getString("CanNombres"));
                    can.setApellidos(res.getString("CanApellidos"));
-                   String da = new SimpleDateFormat("yyyy-MM-dd").format(res.getDate("CanFechaNac"));
-                   System.out.println("Date da = " + da);
-                   Date d = res.getDate("CanFechaNac");
-                   System.out.println("Date d = " + d);
-                   can.setFechaNacimiento(d);
+                   Date d;
+                   try {
+                       d = new SimpleDateFormat("yyyy-MM-dd").parse(res.getString("CanFechaNac"));
+                        can.setFechaNacimiento(d);
+                   } catch (ParseException ex) {
+                       Logger.getLogger(CRegistroCandidato.class.getName()).log(Level.SEVERE, null, ex);
+                   }
                    can.setEdoCivil(res.getString("CanEdoCivil").charAt(0));
                    System.out.println("EdoCivil = " + can.getEdoCivil());
                    can.setDireccion(res.getString("CanDireccion"));
@@ -274,7 +309,6 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
                    can.setEmail(res.getString("CanEmail"));
                    can.setCodTelefono(res.getString("CanCodTelefono"));
                    can.setTelefono(res.getString("CanTelefono"));
-                   llenarCampos();
                    if(res.getString("CanEstatus").equals("A")) {
                        vregcan.getBtnModificar().setEnabled(true);
                        vregcan.getBtnEliminar().setEnabled(true);
@@ -286,6 +320,21 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
                                JOptionPane.WARNING_MESSAGE);
                    }
                    res.close();
+                   res = daoc.consultarPalabrasClavePorCandidato(can.getRif());
+                   String txt;
+                   String[] palabras;
+                   ArrayList<String> arr = new ArrayList<>();
+                   while(res.next()) {
+                       txt = res.getString("PalPalabra");
+                       arr.add(txt);
+                   }
+                   res.close();
+                   palabras = new String[arr.size()];
+                   for(int i=0; i<palabras.length; i++) {
+                       palabras[i] = arr.get(i);
+                   }
+                   can.setPalabrasClave(palabras);
+                   llenarCampos();
                }
                catch(SQLException ex) {
                    Logger.getLogger(CRegistroCandidato.class.getName()).log(Level.SEVERE, null, ex);
@@ -296,7 +345,17 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
        }
     }
     
-    public void registrarCandidato() {
+    public String[] obtenerPalabrasClave() {
+        StringTokenizer st = new StringTokenizer(vregcan.getTxaPalabrasClave().getText());
+        String[] palabras = new String[st.countTokens()];
+        for(int i=0; i<palabras.length; i++) {
+            palabras[i] = st.nextToken();
+            System.out.println("Palabra " + (i+1) + ": " + palabras[i]);
+        }
+        return palabras;
+    }
+    
+    public void setearCandidato() {
         can.setRif(vregcan.getCmbRif().getSelectedItem().toString() + vregcan.getTxtRif().getText());
         can.setNombres(vregcan.getTxtNombres().getText());
         can.setApellidos(vregcan.getTxtApellidos().getText());
@@ -308,7 +367,17 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
         can.setEmail(vregcan.getTxtCorreo().getText());        
         can.setCodTelefono(vregcan.getLblCodTelefono().getText());
         can.setTelefono(vregcan.getTxtTelefono().getText());
+        can.setPalabrasClave(obtenerPalabrasClave());
+    }
+    
+    public void registrarCandidato() {
+        setearCandidato();
         new DaoCandidato().InsertarCandidato(can);
+    }
+    
+    public void modificarCandidato() {
+        setearCandidato();
+        new DaoCandidato().modificarCandidato(can);
     }
     
     public void eliminarCandidato() {
@@ -340,12 +409,17 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
         }
         
         if(e.getSource().equals(vregcan.getBtnModificar())) {
+            modificar = true;
             habilitarRegistro();
             return;
         }
         
         if(e.getSource().equals(vregcan.getBtnGuardar())) {
-            registrarCandidato();
+            if (!modificar) {
+                registrarCandidato();
+            } else {
+                modificarCandidato();
+            }
             JOptionPane.showMessageDialog(vregcan,
                     "Cambios guardados satisfactoriamente.",
                     "Gestionar candidato",
@@ -394,7 +468,7 @@ public class CRegistroCandidato implements ActionListener, KeyListener, ItemList
                 vregcan.getLblCodTelefono().setText("+58");
             }
         }
-        //NO QUITAR el comentario de la siguiente línea:
+        //NO descomentar la siguiente línea:
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

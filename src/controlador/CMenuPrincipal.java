@@ -98,11 +98,19 @@ public class CMenuPrincipal implements ActionListener {
              
          }
         
+        if (e.getSource().equals(vmenprin.getBtnConsultarCandidatos())) {
+            new CConsultaCandidatos();
+        }
+        
         if (e.getSource().equals(vmenprin.getBtnRegistrarCandidato())){
             new CRegistroCandidato();
             
              
          }
+        
+        if (e.getSource().equals(vmenprin.getBtnAsignarCandidato())) {
+            new CAsignarCandidato();
+        }
         
         if (e.getSource().equals(vmenprin.getBtnRegistrarCliente())){
              new CRegistroCliente();
